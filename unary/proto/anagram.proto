@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package anagram;
+
+option go_package = "github.com/iunary/grpcly/unary/proto;anagrampb";
+
+service Anagram {
+    rpc Check(AnagramRequest) returns (AnagramResponse) {}
+}
+
+message AnagramRequest {
+    string source = 1;
+    string target = 2;
+}
+
+message AnagramResponse {
+    bool isAnagram = 1;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package reverser;
+
+option go_package = "github.com/iunary/grpcly/stream/bi/proto;reverserpb";
+
+service Reverser {
+    rpc Broadcast(stream ReverserRequest) returns (stream ReverserResponse) {}
+}
+
+message ReverserRequest {
+    string word = 1;
+}
+
+message ReverserResponse {
+    string result = 1;
+}
